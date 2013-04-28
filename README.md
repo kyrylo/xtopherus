@@ -6,19 +6,7 @@ Xtopherus
 Description
 -----------
 
-Installation
-------------
-
-    gem install xtopherus
-
-Synopsis
---------
-
-Limitations
------------
-
-Credits
--------
+An IRC bot serving the `#pry` channel on Freenode.
 
 Licence
 -------
