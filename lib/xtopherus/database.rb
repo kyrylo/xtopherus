@@ -1,3 +1,6 @@
+require 'sequel'
+require 'sequel/extensions/migration'
+
 module Xtopherus
   Database = Sequel.sqlite(File.join(File.expand_path('db'), 'my_brain.db'))
 

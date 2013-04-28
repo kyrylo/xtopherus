@@ -1,3 +1,3 @@
 task :environment do
-  require_relative File.join(File.dirname(__FILE__), '..', 'lib', 'xtopherus')
+  require_relative File.join(File.dirname(__FILE__), '..', 'lib', 'xtopherus', 'database')
 end

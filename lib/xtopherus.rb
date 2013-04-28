@@ -1,9 +1,11 @@
 require 'cinch'
-require 'sequel'
-require 'sequel/extensions/migration'
 
 require_relative 'xtopherus/bot'
 require_relative 'xtopherus/database'
+
+require_relative 'xtopherus/models/peak'
+
+require_relative 'xtopherus/plugins/peak_info'
 
 module Xtopherus
 

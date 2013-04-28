@@ -1,5 +1,11 @@
 namespace :db do
 
+  desc 'Create a new database'
+  task :create do
+    require 'sequel'
+    Sequel.sqlite(File.join(File.expand_path('db'), 'my_brain.db'))
+  end
+
   desc 'Run migrations'
   task :migrate => :environment do
     Xtopherus::Database.migrate(ENV['TO'].to_i, ENV['FROM'].to_i)

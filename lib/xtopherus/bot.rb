@@ -37,7 +37,9 @@ module Xtopherus
         c.server   = config.get.server
         c.port     = config.get.port
         c.channels = config.get.channels
-        c.plugins.plugins = [ ]
+        c.plugins.plugins = [
+          Xtopherus::PeakInfo
+        ]
       end
     end
   end
