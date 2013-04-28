@@ -19,7 +19,7 @@ module Xtopherus
     def listen(m)
       user_count = m.channel.users.size
       if user_count > @@current_peak
-        @@current_peak += 1
+        @@current_peak = user_count
         Peak.create(users_quantity: @@current_peak, scorer_nick: m.user.nick)
         m.reply "[New peak: #{ @@current_peak }]"
       end
