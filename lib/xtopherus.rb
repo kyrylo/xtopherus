@@ -1,3 +1,9 @@
+require 'cinch'
+require 'sequel'
+require 'sequel/extensions/migration'
+
+require_relative 'xtopherus/bot'
+
 module Xtopherus
 
   # The VERSION file must be in the root directory of the library.
