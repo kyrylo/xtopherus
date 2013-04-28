@@ -3,6 +3,7 @@ require 'sequel'
 require 'sequel/extensions/migration'
 
 require_relative 'xtopherus/bot'
+require_relative 'xtopherus/database'
 
 module Xtopherus
 
