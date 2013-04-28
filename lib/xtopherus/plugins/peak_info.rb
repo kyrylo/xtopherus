@@ -17,7 +17,6 @@ module Xtopherus
     @@current_peak = proc { (p = find_peak) && p.users_quantity || 1 }.()
 
     def listen(m)
-      return if m.user.nick == bot.nick
       user_count = m.channel.users.size
       if user_count > @@current_peak
         @@current_peak += 1
