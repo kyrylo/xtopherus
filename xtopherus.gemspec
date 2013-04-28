@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
 
   s.require_path = 'lib'
   s.files        = `git ls-files`.split("\n")
+  s.executable   = 'xtopherus'
 
   s.add_runtime_dependency 'cinch'
   s.add_runtime_dependency 'sequel'
