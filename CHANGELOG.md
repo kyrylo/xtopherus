@@ -1,6 +1,6 @@
 Xtopherus changelog
-=========
+===================
 
-### v0.0.0 (April 01, 2013)
+### v0.0.1 (April 28, 2013)
 
 * Initial release

@@ -2,8 +2,7 @@ Gem::Specification.new do |s|
   s.name         = 'xtopherus'
   s.version      = File.read('VERSION')
   s.date         = Time.now.strftime('%Y-%m-%d')
-  s.summary      = ''
-  s.description  = ''
+  s.summary      = 'An IRC bot that sits in #pry on Freenode.'
   s.author       = 'Kyrylo Silin'
   s.email        = 'kyrylosilin@gmail.com'
   s.homepage     = 'https://github.com/kyrylo/xtopherus'
