@@ -21,14 +21,15 @@ module Xtopherus
       if user_count > @@current_peak
         @@current_peak = user_count
         Peak.create(users_quantity: @@current_peak, scorer_nick: m.user.nick)
-        m.reply "[New peak: #{ @@current_peak }]"
+        m.reply "New peak: #{ @@current_peak }"
       end
     end
 
     def report_peak(m)
       peak = self.class.find_peak
-      m.reply "[Current peak: #{ peak.users_quantity }. " \
-              "The scorer: #{ peak.scorer_nick }]"
+      m.reply "Current peak: #{ peak.users_quantity }. " \
+              "The scorer: #{ peak.scorer_nick }. " \
+              "Registered on: #{ peak.updated_at.strftime("%Y-%m-%d") }"
     end
 
   end
