@@ -4,6 +4,7 @@ require_relative 'xtopherus/bot'
 require_relative 'xtopherus/database'
 
 require_relative 'xtopherus/models/peak'
+require_relative 'xtopherus/models/download_stamp'
 
 require_relative 'xtopherus/plugins/peak_info'
 
