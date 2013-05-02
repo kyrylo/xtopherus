@@ -1,6 +1,11 @@
 Xtopherus changelog
 ===================
 
+### v0.0.5 (May 02, 2013)
+
+* Implemented Pry downloads informator
+* Added date for the peak message
+
 ### v0.0.4 (April 28, 2013)
 
 * Fixed PeakInfo counter
