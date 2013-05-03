@@ -16,7 +16,6 @@ module Xtopherus
     @@current_peak = proc { (p = find_peak) && p.users_quantity || 1 }.()
 
     def listen(m)
-      send_downloads_notification
       user_count = m.channel.users.size
       if user_count > @@current_peak
         @@current_peak = user_count
