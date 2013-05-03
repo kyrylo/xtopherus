@@ -6,9 +6,11 @@ require_relative 'xtopherus/database'
 
 require_relative 'xtopherus/models/peak'
 require_relative 'xtopherus/models/download_stamp'
+require_relative 'xtopherus/models/pry_plugin'
 
 require_relative 'xtopherus/plugins/peak_info'
 require_relative 'xtopherus/plugins/downloads_info'
+require_relative 'xtopherus/plugins/pry_plugins_info'
 
 module Xtopherus
 

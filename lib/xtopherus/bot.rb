@@ -38,8 +38,9 @@ module Xtopherus
         c.port     = config.get.port
         c.channels = config.get.channels
         c.plugins.plugins = [
-          Xtopherus::PeakInfo
-          Xtopherus::DownloadsInfo
+          Xtopherus::PeakInfo,
+          Xtopherus::DownloadsInfo,
+          Xtopherus::PryPluginsInfo,
         ]
       end
     end
