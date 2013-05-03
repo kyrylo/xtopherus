@@ -7,6 +7,7 @@ require_relative 'xtopherus/models/peak'
 require_relative 'xtopherus/models/download_stamp'
 
 require_relative 'xtopherus/plugins/peak_info'
+require_relative 'xtopherus/plugins/downloads_info'
 
 module Xtopherus
 

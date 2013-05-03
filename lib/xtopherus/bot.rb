@@ -39,6 +39,7 @@ module Xtopherus
         c.channels = config.get.channels
         c.plugins.plugins = [
           Xtopherus::PeakInfo
+          Xtopherus::DownloadsInfo
         ]
       end
     end
