@@ -1,6 +1,3 @@
-require 'net/https'
-require 'json'
-
 module Xtopherus
   class DownloadsInfo
     include Cinch::Plugin
@@ -13,7 +10,7 @@ module Xtopherus
     timer 1_800, method: :send_downloads_notification
 
     def send_downloads_notification
-      downloads = total_downloads
+      downloads = Gems.total_downloads('pry', '0.9.12')[:total_downloads]
       @prev_downloads ||= (DownloadStamp.last || DownloadStamp.create(number: downloads))
       since_then = downloads - @prev_downloads.number
 
@@ -33,15 +30,6 @@ module Xtopherus
     def report_downloads(m)
       downloads = number_with_delimiter(DownloadStamp.last.number)
       m.reply "Pry was downloaded about #{ downloads } times."
-    end
-
-    def total_downloads
-      uri = URI.parse('https://rubygems.org/api/v1/downloads/pry-0.9.12.json')
-      http = Net::HTTP.new(uri.host, uri.port)
-      http.use_ssl = true
-      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-      json = JSON.parse(http.get(uri.request_uri).body)
-      json['total_downloads']
     end
 
     def number_with_delimiter(number)

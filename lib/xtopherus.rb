@@ -1,4 +1,5 @@
 require 'cinch'
+require 'gems'
 
 require_relative 'xtopherus/bot'
 require_relative 'xtopherus/database'

@@ -1,17 +1,10 @@
-PATH
-  remote: .
-  specs:
-    xtopherus (0.0.0)
-      cinch
-      sequel
-      sqlite3
-
 GEM
   remote: https://rubygems.org/
   specs:
     bacon (1.2.0)
     cinch (2.0.4)
     coderay (1.0.9)
+    gems (0.8.0)
     method_source (0.8.1)
     pry (0.9.12.1)
       coderay (~> 1.0.5)
@@ -27,6 +20,9 @@ PLATFORMS
 
 DEPENDENCIES
   bacon
+  cinch
+  gems
   pry
   rake
-  xtopherus!
+  sequel
+  sqlite3
