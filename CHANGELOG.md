@@ -1,6 +1,12 @@
 Xtopherus changelog
 ===================
 
+### v0.0.6 (May 03, 2013)
+
+* Implemented PryPluginsInfo plugin (notifies about new plugins and stuff)
+* Fixed horrific bug when the bot checks for downloads on join of every user
+* Switched to Gems gem (RubyGems API handling)
+
 ### v0.0.5 (May 02, 2013)
 
 * Implemented Pry downloads informator
