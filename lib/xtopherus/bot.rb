@@ -41,6 +41,7 @@ module Xtopherus
           Xtopherus::PeakInfo,
           Xtopherus::DownloadsInfo,
           Xtopherus::PryPluginsInfo,
+          Xtopherus::IssuesNotifier,
         ]
       end
     end
