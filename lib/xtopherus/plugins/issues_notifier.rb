@@ -3,7 +3,7 @@ module Xtopherus
     include Cinch::Plugin
 
     # 12 minutes
-    timer 30, method: :send_new_issue_notification
+    timer 720, method: :send_new_issue_notification
 
     listen_to :join
 
