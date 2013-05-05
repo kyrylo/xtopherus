@@ -1,6 +1,10 @@
 Xtopherus changelog
 ===================
 
+### v0.0.7 (May 05, 2013)
+
+* Implemented LatestIssues plugin (notifies about new Pry issues and stuff)
+
 ### v0.0.6 (May 03, 2013)
 
 * Implemented PryPluginsInfo plugin (notifies about new plugins and stuff)
