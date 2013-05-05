@@ -1,6 +1,7 @@
 require 'cinch'
 require 'gems'
 require 'octokit'
+require 'openssl'
 
 require_relative 'xtopherus/bot'
 require_relative 'xtopherus/database'
@@ -22,5 +23,7 @@ module Xtopherus
 
   VERSION = File.exist?(VERSION_FILE) ?
     File.read(VERSION_FILE).chomp : '(could not find VERSION file)'
+
+  OpenSSL::SSL::VERIFY_PEER = 0
 
 end
