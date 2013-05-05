@@ -1,6 +1,3 @@
-require 'net/https'
-require 'json'
-
 module Xtopherus
   class PryPluginsInfo
     include Cinch::Plugin
