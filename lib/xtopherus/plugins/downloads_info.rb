@@ -7,6 +7,7 @@ module Xtopherus
     match /downloads\z/,
           method: :report_downloads
 
+    # 30 minutes.
     timer 1_800, method: :send_downloads_notification
 
     def send_downloads_notification
@@ -16,14 +17,14 @@ module Xtopherus
 
       if since_then >= rand(45_000..55_000)
         stamp = DownloadStamp.create(number: downloads)
-        @prev_downloads = stamp
-        days = (stamp.created_at - @prev_downloads.created_at).to_i / 86400
+        days = ((stamp.created_at - @prev_downloads.created_at) / 86400).ceil
         bot.channels.each do |chan|
           downloads = number_with_delimiter(downloads)
           Channel(chan).send "Pry was downloaded #{ downloads } times. " \
                              "We've gotten #{ since_then } downloads in " \
                              "#{ days } days, which is kinda k00, I'd say."
         end
+        @prev_downloads = stamp
       end
     end
 
