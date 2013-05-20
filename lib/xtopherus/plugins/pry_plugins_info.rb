@@ -60,7 +60,7 @@ module Xtopherus
       if plugin
         m.reply "#{ plugin.pry_plugin.name } is the leader of this week " \
                 "(#{ number_with_delimiter(plugin.week_number) } downloads). " \
-                "gem install #{ plugin.pry_plugin.name } && $BROWSER " \
+                "gem install #{ plugin.pry_plugin.name } & $BROWSER " \
                 "#{ plugin.pry_plugin.homepage_uri }"
       else
         m.reply "No top plugin yet. I'm collecting some data, so try to " \
