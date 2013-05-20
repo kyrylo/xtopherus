@@ -1,6 +1,7 @@
 module Xtopherus
   class PryPluginsInfo
     include Cinch::Plugin
+    include ChatHelper
 
     set react_on: :channel
 
@@ -12,6 +13,9 @@ module Xtopherus
 
     match /freshplugin\z/,
           method: :report_fresh_plugin
+
+    match /topplugin\z/,
+          method: :report_topplugin
 
     # 12 hours.
     timer 43200, method: :send_plugins_notification
@@ -51,15 +55,25 @@ module Xtopherus
               "#{ plugin.authors }. #{ plugin.homepage_uri }"
     end
 
-    def send_plugin_of_the_week_notification(opts = {first_run: false})
-      stamps = []
+    def report_topplugin(m)
+      plugin = TopPryPlugin.last
+      if plugin
+        m.reply "#{ plugin.pry_plugin.name } is the leader of this week " \
+                "(#{ number_with_delimiter(plugin.week_number) } downloads). " \
+                "gem install #{ plugin.pry_plugin.name } && $BROWSER " \
+                "#{ plugin.pry_plugin.homepage_uri }"
+      else
+        m.reply "No top plugin yet. I'm collecting some data, so try to " \
+                "wait a few days."
+      end
+    end
 
+    def send_plugin_of_the_week_notification(opts = {first_run: false})
       PryPlugin.all.each { |plugin|
         downloads = Gems.total_downloads(plugin.name)[:total_downloads]
         stamp = PryPluginDownloadStamp.new(number: downloads)
         plugin.add_pry_plugin_download_stamp(stamp)
         plugin.save
-        stamps << stamp
       }
 
       diffs = []
@@ -70,9 +84,15 @@ module Xtopherus
         diffs << [diff, plugin]
       }
 
-      if opts[:first_run]
+      unless opts[:first_run]
         second, best = diffs.sort_by!(&:first).last(2)
         worst = diffs.first
+
+        TopPryPlugin.create(pry_plugin_id: best[1].id, week_number: best[0])
+
+        second[0] = number_with_delimiter(second[0])
+        best[0]   = number_with_delimiter(best[0])
+        worst[0]  = number_with_delimiter(worst[0])
 
         bot.channels.each do |chan|
           Channel(chan).send "Fresh news, everyone! Plugin of the week is " \
