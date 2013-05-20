@@ -10,6 +10,9 @@ module Xtopherus
     match /plugin (.+)\z/,
           method: :report_plugin
 
+    match /freshplugin\z/,
+          method: :report_fresh_plugin
+
     # 12 hours.
     timer 43200, method: :send_plugins_notification
 
@@ -34,6 +37,12 @@ module Xtopherus
       plugin = PryPlugin.order(:updated_at).last
       m.reply "#{ plugin.name } by #{ plugin.authors }. I'd send a patch, but " \
               "my hands doesn't work on it yet. #{ plugin.homepage_uri }"
+    end
+
+    def report_fresh_plugin(m)
+      plugin = PryPlugin.order(:created_at).last
+      m.reply "The youngest of us is #{ plugin.name } made by marvelous " \
+              "#{ plugin.authors }. #{ plugin.homepage_uri }"
     end
 
     def send_plugins_notification
