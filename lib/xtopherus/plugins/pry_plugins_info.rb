@@ -16,10 +16,16 @@ module Xtopherus
     # 12 hours.
     timer 43200, method: :send_plugins_notification
 
+    # 1 week.
+    timer 604800, method: :send_plugin_of_the_week_notification
+
     listen_to :join
 
     def listen(m)
-      send_plugins_notification if m.user.nick == bot.nick
+      if m.user.nick == bot.nick
+        send_plugins_notification
+        send_plugin_of_the_week_notification(first_run: true)
+      end
     end
 
     def report_plugin(m, plugin_name)
@@ -41,8 +47,47 @@ module Xtopherus
 
     def report_fresh_plugin(m)
       plugin = PryPlugin.order(:created_at).last
-      m.reply "The youngest of us is #{ plugin.name } made by marvelous " \
+      m.reply "The youngest of them is #{ plugin.name } made by marvelous " \
               "#{ plugin.authors }. #{ plugin.homepage_uri }"
+    end
+
+    def send_plugin_of_the_week_notification(opts = {first_run: false})
+      stamps = []
+
+      PryPlugin.all.each { |plugin|
+        downloads = Gems.total_downloads(plugin.name)[:total_downloads]
+        stamp = PryPluginDownloadStamp.new(number: downloads)
+        plugin.add_pry_plugin_download_stamp(stamp)
+        plugin.save
+        stamps << stamp
+      }
+
+      diffs = []
+      PryPlugin.all.map { |plugin|
+        last_plugins = PryPluginDownloadStamp.order(:id).
+          where(pry_plugin_id: plugin.id).last(2)
+        diff = last_plugins.first.number - last_plugins.last.number
+        diffs << [diff, plugin]
+      }
+
+      if opts[:first_run]
+        second, best = diffs.sort_by!(&:first).last(2)
+        worst = diffs.first
+
+        bot.channels.each do |chan|
+          Channel(chan).send "Fresh news, everyone! Plugin of the week is " \
+                             "#{ best[1].name } with #{ best[0] } downloads " \
+                             "(good job, #{ best[1].authors }!). " \
+                             "#{ best[1].homepage_uri }"
+          Channel(chan).send "Contributors of #{ second[1].name } plugin really " \
+                             "tried hard this week, but only managed to take " \
+                             "second place with #{ second[0] } downloads. " \
+                             "#{ second[1].homepage_uri }"
+          Channel(chan).send "Finally, last but least is #{ worst[1].name }. It " \
+                             "was downloaded only #{ worst[0] } times. " \
+                             "#{ worst[1].authors }, you should try harder!"
+        end
+      end
     end
 
     def send_plugins_notification

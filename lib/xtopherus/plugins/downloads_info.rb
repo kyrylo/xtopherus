@@ -1,6 +1,7 @@
 module Xtopherus
   class DownloadsInfo
     include Cinch::Plugin
+    include ChatHelper
 
     set react_on: :channel
 
@@ -31,12 +32,6 @@ module Xtopherus
     def report_downloads(m)
       downloads = number_with_delimiter(DownloadStamp.last.number)
       m.reply "Pry was downloaded about #{ downloads } times."
-    end
-
-    def number_with_delimiter(number)
-      parts = number.to_s.to_str.split('.')
-      parts[0].gsub!(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1,")
-      parts.join(',')
     end
 
   end
