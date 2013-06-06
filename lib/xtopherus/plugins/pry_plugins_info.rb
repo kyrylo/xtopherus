@@ -125,20 +125,18 @@ module Xtopherus
           if plugin.version != params[:version]
             plugin.update(params)
             plugin.save
-            bot.channels.each { |chan|
-              Channel(chan).send(
-                "Incredible #{ plugin.authors } updated #{ plugin.name } " \
-                "to version #{ plugin.version }. Hup-hup! " \
-                "#{ plugin.homepage_uri }") }
+            Channel(bot.channels.first).send(
+              "Incredible #{ plugin.authors } updated #{ plugin.name } " \
+              "to version #{ plugin.version }. Hup-hup! " \
+              "#{ plugin.homepage_uri }")
           end
         else
           plugin = PryPlugin.create(params)
-          bot.channels.each { |chan|
-            Channel(chan).send(
-              "New Pry plugin, chaps! #{ plugin.name } was created by " \
-              "#{ plugin.authors }. They revealed to me some secrets. " \
-              "They said: \"#{ plugin.info }\". I heard Matz is already " \
-              "using it! #{ plugin.homepage_uri }") }
+          Channel(bot.channels.first).send(
+            "New Pry plugin, chaps! #{ plugin.name } was created by " \
+            "#{ plugin.authors }. They revealed to me some secrets. " \
+            "They said: \"#{ plugin.info }\". I heard Matz is already " \
+            "using it! #{ plugin.homepage_uri }")
         end
       }
     end
