@@ -5,7 +5,6 @@ gem 'sequel'
 gem 'sqlite3'
 gem 'gems', github: 'arangamani/gems'
 gem 'octokit'
-gem 'httparty'
 
 group :development, :test do
   gem 'bacon'
