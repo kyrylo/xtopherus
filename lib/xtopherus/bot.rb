@@ -42,7 +42,6 @@ module Xtopherus
           Xtopherus::DownloadsInfo,
           Xtopherus::PryPluginsInfo,
           Xtopherus::IssuesNotifier,
-          Xtopherus::DailyCmdfu,
         ]
       end
     end
