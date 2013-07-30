@@ -5,6 +5,7 @@ gem 'sequel'
 gem 'gems', github: 'arangamani/gems'
 gem 'octokit'
 gem 'heroku'
+gem 'foreman'
 
 group :development do
   gem 'sqlite3'
