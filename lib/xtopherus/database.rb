@@ -2,7 +2,14 @@ require 'sequel'
 require 'sequel/extensions/migration'
 
 module Xtopherus
-  Database = Sequel.connect(ENV['DATABASE_ADDRESS'])
+  if ENV['DATABASE_ADDRESS']
+    Database = Sequel.connect(ENV['DATABASE_ADDRESS'])
+  else
+    raise ArgumentError,
+      "Set up credentials in DATABASE_ADDRESS environment variable. " \
+      " Example: postgres://user:password@localhost/blog"
+  end
+
 
   class << Database
 
