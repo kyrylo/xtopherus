@@ -6,19 +6,14 @@ module Xtopherus
   class Bot < Cinch::Bot
     class BotConfig
       def initialize
-        default_conf = begin
-          YAML.load_file(File.expand_path('~/.xtopherus'))
-        rescue Errno::ENOENT
-          {}
-        end
-
         @conf = OpenStruct.new({
           nick:     'Xtopherus',
           realname: 'Xtopherus',
           user:     'Xtopherus',
           server:   'irc.freenode.net',
           port:     6667,
-          channels: ['#xtopherus-test']
+          channels: ['#pry'],
+          # channels: ['#xtopherus-test'],
         }.merge!(default_conf))
       end
 
