@@ -2,7 +2,7 @@ require 'sequel'
 require 'sequel/extensions/migration'
 
 module Xtopherus
-  Database = Sequel.sqlite(File.join(File.expand_path('db'), 'my_brain.db'))
+  Database = Sequel.connect(ENV['DATABASE_ADDRESS'])
 
   class << Database
 

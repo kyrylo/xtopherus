@@ -6,10 +6,7 @@ gem 'gems', github: 'arangamani/gems'
 gem 'octokit'
 gem 'heroku'
 gem 'foreman'
-
-group :development do
-  gem 'sqlite3'
-end
+gem 'pg'
 
 group :development, :test do
   gem 'bacon'
