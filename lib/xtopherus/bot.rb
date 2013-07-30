@@ -14,7 +14,7 @@ module Xtopherus
           port:     6667,
           channels: ['#pry'],
           # channels: ['#xtopherus-test'],
-        }.merge!(default_conf))
+        })
       end
 
       def get; @conf end
