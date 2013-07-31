@@ -37,6 +37,7 @@ module Xtopherus
           Xtopherus::DownloadsInfo,
           Xtopherus::PryPluginsInfo,
           Xtopherus::IssuesNotifier,
+          Xtopherus::Help
         ]
       end
     end
