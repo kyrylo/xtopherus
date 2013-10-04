@@ -113,7 +113,7 @@ module Xtopherus
       likes = find_alike(key, m.channel.name)
       m.reply("Matches for %s: %s" % [ key, likes ], true) unless likes.empty?
     rescue
-      m.reply EXCEPTION_MSG, true)
+      m.reply EXCEPTION_MSG, true
       raise
     end
 
