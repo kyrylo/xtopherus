@@ -19,6 +19,7 @@ require_relative 'xtopherus/plugins/downloads_info'
 require_relative 'xtopherus/plugins/pry_plugins_info'
 require_relative 'xtopherus/plugins/issues_notifier'
 require_relative 'xtopherus/plugins/help'
+require_relative 'xtopherus/plugins/commits'
 
 module Xtopherus
 

@@ -9,6 +9,7 @@ gem 'octokit'
 gem 'heroku'
 gem 'foreman'
 gem 'pg'
+gem 'mechanize'
 
 group :development, :test do
   gem 'bacon'
