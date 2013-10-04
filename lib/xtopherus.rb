@@ -20,6 +20,7 @@ require_relative 'xtopherus/plugins/pry_plugins_info'
 require_relative 'xtopherus/plugins/issues_notifier'
 require_relative 'xtopherus/plugins/help'
 require_relative 'xtopherus/plugins/commits'
+require_relative 'xtopherus/plugins/classname'
 
 module Xtopherus
 

@@ -38,7 +38,8 @@ module Xtopherus
           Xtopherus::PryPluginsInfo,
           Xtopherus::IssuesNotifier,
           Xtopherus::Help,
-          Xtopherus::Commits
+          Xtopherus::Commits,
+          Xtopherus::Classname
         ]
       end
     end
