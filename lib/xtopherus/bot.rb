@@ -39,7 +39,8 @@ module Xtopherus
           Xtopherus::IssuesNotifier,
           Xtopherus::Help,
           Xtopherus::Commits,
-          Xtopherus::Classname
+          Xtopherus::Classname,
+          Xtopherus::Phrases
         ]
       end
     end

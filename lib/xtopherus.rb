@@ -13,6 +13,8 @@ require_relative 'xtopherus/models/pry_plugin'
 require_relative 'xtopherus/models/latest_issue'
 require_relative 'xtopherus/models/pry_plugin_download_stamp'
 require_relative 'xtopherus/models/top_pry_plugin'
+require_relative 'xtopherus/models/phrase'
+require_relative 'xtopherus/models/phrase_version'
 
 require_relative 'xtopherus/plugins/peak_info'
 require_relative 'xtopherus/plugins/downloads_info'
@@ -21,6 +23,7 @@ require_relative 'xtopherus/plugins/issues_notifier'
 require_relative 'xtopherus/plugins/help'
 require_relative 'xtopherus/plugins/commits'
 require_relative 'xtopherus/plugins/classname'
+require_relative 'xtopherus/plugins/phrases'
 
 module Xtopherus
 
