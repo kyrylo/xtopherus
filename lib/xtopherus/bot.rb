@@ -12,8 +12,7 @@ module Xtopherus
           user:     'Xtopherus',
           server:   'irc.freenode.net',
           port:     6667,
-          channels: ['#pry'],
-          # channels: ['#xtopherus-test'],
+          channels: ['#pry']
         })
       end
 
@@ -40,7 +39,8 @@ module Xtopherus
           Xtopherus::Help,
           Xtopherus::Commits,
           Xtopherus::Classname,
-          Xtopherus::Phrases
+          Xtopherus::Phrases,
+          Xtopherus::Possess
         ]
       end
     end

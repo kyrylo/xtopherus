@@ -24,6 +24,7 @@ require_relative 'xtopherus/plugins/help'
 require_relative 'xtopherus/plugins/commits'
 require_relative 'xtopherus/plugins/classname'
 require_relative 'xtopherus/plugins/phrases'
+require_relative 'xtopherus/plugins/possess'
 
 module Xtopherus
 
