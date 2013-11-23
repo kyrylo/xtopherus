@@ -40,7 +40,8 @@ module Xtopherus
           Xtopherus::Commits,
           Xtopherus::Classname,
           Xtopherus::Phrases,
-          Xtopherus::Possess
+          Xtopherus::Possess,
+          Xtopherus::Protolol
         ]
       end
     end
