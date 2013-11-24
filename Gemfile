@@ -10,6 +10,7 @@ gem 'heroku'
 gem 'foreman'
 gem 'pg'
 gem 'mechanize'
+gem 'twitter'
 
 group :development, :test do
   gem 'bacon'

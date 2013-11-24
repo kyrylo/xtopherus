@@ -26,6 +26,7 @@ require_relative 'xtopherus/plugins/classname'
 require_relative 'xtopherus/plugins/phrases'
 require_relative 'xtopherus/plugins/possess'
 require_relative 'xtopherus/plugins/protolol'
+require_relative 'xtopherus/plugins/tweeter'
 
 module Xtopherus
 

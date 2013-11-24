@@ -41,7 +41,8 @@ module Xtopherus
           Xtopherus::Classname,
           Xtopherus::Phrases,
           Xtopherus::Possess,
-          Xtopherus::Protolol
+          Xtopherus::Protolol,
+          Xtopherus::Tweeter
         ]
       end
     end
