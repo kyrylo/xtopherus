@@ -95,13 +95,13 @@ module Xtopherus
         worst[0]  = number_with_delimiter(worst[0])
 
         bot.channels.each do |chan|
-          Channel(chan).send "Fresh news, everyone! Plugin of the week is " \
+          Channel(chan).send "Fresh news, everyone! The plugin of the week is " \
                              "#{ best[1].name } with #{ best[0] } downloads " \
                              "(good job, #{ best[1].authors }!). " \
                              "#{ best[1].homepage_uri }"
-          Channel(chan).send "Contributors of #{ second[1].name } plugin really " \
+          Channel(chan).send "The contributors of #{ second[1].name } really " \
                              "tried hard this week, but only managed to take " \
-                             "second place with #{ second[0] } downloads. " \
+                             "the second place with #{ second[0] } downloads. " \
                              "#{ second[1].homepage_uri }"
           Channel(chan).send "Finally, last but least is #{ worst[1].name }. It " \
                              "was downloaded only #{ worst[0] } times. " \
