@@ -44,7 +44,7 @@ module Xtopherus
     end
 
     def report_latest_plugin(m)
-      plugin = PryPlugin.order(:updated_at).last
+      plugin = PryPlugin.order(:updated).last
       m.reply "#{ plugin.name } by #{ plugin.authors }. I'd send a patch, but " \
               "my hands doesn't work on it yet. #{ plugin.homepage_uri }"
     end
@@ -119,6 +119,7 @@ module Xtopherus
           authors: info['authors'],
           info:    info['info'],
           homepage_uri: info['homepage_uri'],
+          updated: Time.now
         }
         plugin = PryPlugin.find(name: params[:name])
         if plugin
