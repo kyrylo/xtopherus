@@ -1,4 +1,5 @@
 require 'twitter'
+require 'cgi'
 
 module Xtopherus
   class Tweeter
@@ -18,7 +19,8 @@ module Xtopherus
     def execute(m, seek)
       tweets = CLIENT.search(seek + ' -rt', result_type: 'recent', count: 3)
       tweets.each do |tweet|
-        m.reply("@#{ tweet.user.handle }: #{ tweet.text }")
+        text = CGI.unescapeHTML(tweet.text).gsub("\n", ' ')
+        m.reply("@#{ tweet.user.handle }: #{ text }")
       end
     end
 
