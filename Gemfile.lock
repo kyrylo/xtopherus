@@ -113,7 +113,7 @@ DEPENDENCIES
   gems!
   heroku
   mechanize
-  octokit (= 1.24.0)
+  octokit
   pg
   pry
   rake
