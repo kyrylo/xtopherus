@@ -14,11 +14,11 @@ module Xtopherus
     def send_new_issue_notification
       issues = Octokit.issues('pry/pry', page: 1).first(5)
       issues.each do |issue|
-        if LatestIssue.find(html_url: issue['html_url']).nil?
+        if LatestIssue.find(html_url: issue.rels[:html].href).nil?
           LatestIssue.create({
             login:    issue['user']['login'],
             title:    issue['title'],
-            html_url: issue['html_url']})
+            html_url: issue.rels[:html].href})
 
           bot.channels.each { |chan|
             if (pr = issue['pull_request']['html_url'])
