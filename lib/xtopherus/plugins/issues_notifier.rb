@@ -12,23 +12,26 @@ module Xtopherus
     end
 
     def send_new_issue_notification
-      issues = Octokit.issues('pry/pry', page: 1).first(5)
+      issues = Octokit.issues('kyrylo/test', page: 1).first(5)
       issues.each do |issue|
-        if LatestIssue.find(html_url: issue.rels[:html].href).nil?
-          LatestIssue.create({
+        html_url = issue.rels[:html].href
+
+        if LatestIssue.find(html_url: html_url).nil?
+          LatestIssue.create(
             login:    issue['user']['login'],
             title:    issue['title'],
-            html_url: issue.rels[:html].href})
+            html_url: html_url)
 
           bot.channels.each { |chan|
-            if (pr = issue['pull_request']['html_url'])
+            pr = issue['pull_request'].rels[:html]
+            if pr && pr.href
               Channel(chan).send(
                 "[Pull Request] #{ issue['user']['login'] } has some code: " \
-                "\"#{ issue['title'] }\". #{ pr }")
+                "\"#{ issue['title'] }\". #{ pr.href }")
             else
               Channel(chan).send(
                 "[Issue] #{ issue['user']['login'] } has a problem: " \
-                "\"#{ issue['title'] }\". #{ issue['html_url'] }")
+                "\"#{ issue['title'] }\". #{ html_url }")
             end
           }
         end
