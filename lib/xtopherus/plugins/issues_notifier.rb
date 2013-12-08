@@ -12,7 +12,7 @@ module Xtopherus
     end
 
     def send_new_issue_notification
-      issues = Octokit.issues('kyrylo/test', page: 1).first(5)
+      issues = Octokit.issues('pry/pry', page: 1).first(5)
       issues.each do |issue|
         html_url = issue.rels[:html].href
 
