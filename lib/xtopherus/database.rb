@@ -2,8 +2,8 @@ require 'sequel'
 require 'sequel/extensions/migration'
 
 module Xtopherus
-  if ENV['DATABASE_ADDRESS']
-    Database = Sequel.connect(ENV['DATABASE_ADDRESS'])
+  if ENV['DATABASE_URL']
+    Database = Sequel.connect(ENV['DATABASE_URL'])
   else
     raise ArgumentError,
       "Set up credentials in DATABASE_ADDRESS environment variable. " \
