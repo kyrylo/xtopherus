@@ -23,7 +23,7 @@ module Xtopherus
             html_url: html_url)
 
           bot.channels.each { |chan|
-            pr = issue['pull_request'].rels[:html]
+            pr = issue['pull_request'].rels[:html_url]
             if pr && pr.href
               Channel(chan).send(
                 "[Pull Request] #{ issue['user']['login'] } has some code: " \
