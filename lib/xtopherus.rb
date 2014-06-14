@@ -1,4 +1,6 @@
 require 'cinch'
+require 'cinch-seen'
+
 require 'gems'
 require 'octokit'
 require 'openssl'
