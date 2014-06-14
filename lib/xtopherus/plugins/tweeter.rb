@@ -20,7 +20,7 @@ module Xtopherus
       tweets = CLIENT.search(seek + ' -rt', result_type: 'recent', count: 3)
       tweets.each do |tweet|
         text = CGI.unescapeHTML(tweet.text).gsub("\n", ' ')
-        m.reply("@#{ tweet.user.handle }: #{ text }")
+        m.reply("@#{tweet.user.screen_name}: #{text}")
       end
     end
 
