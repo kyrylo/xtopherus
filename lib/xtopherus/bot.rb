@@ -42,7 +42,8 @@ module Xtopherus
           Xtopherus::Phrases,
           Xtopherus::Possess,
           Xtopherus::Protolol,
-          Xtopherus::Tweeter
+          Xtopherus::Tweeter,
+          Cinch::Plugins::Seen
         ]
       end
     end
