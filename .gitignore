@@ -5,3 +5,4 @@ doc/
 pkg/
 .yardoc/
 db/*.db
+yaml/*.yml
