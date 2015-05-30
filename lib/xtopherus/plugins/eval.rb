@@ -24,7 +24,7 @@ class Xtopherus::Eval
   def new_http
     Net::HTTP.new(HOST, PORT).tap do |http|
       http.use_ssl = true
-      http.ssl_version = :TLSv1_2
+      http.ssl_version = :TLSv1
     end
   end
 end
