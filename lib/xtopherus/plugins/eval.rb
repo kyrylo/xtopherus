@@ -9,7 +9,8 @@ class Xtopherus::Eval
   WRAPPED = "p begin\n%s\nrescue Exception\n$!.class\nend"
   NEWLINE = "\n"
   include Cinch::Plugin
-  match /e (.+)\z/, method: :eval
+  set :prefix, /^>>/
+  match /(.+)\z/, method: :eval
 
   def eval(m, rubycode)
     http = new_http
