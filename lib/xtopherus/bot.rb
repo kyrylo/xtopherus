@@ -12,7 +12,7 @@ module Xtopherus
           user:     'Xtopherus',
           server:   'irc.freenode.net',
           port:     6667,
-          channels: ['#pry']
+          channels: ['#pry', '#fancyfeast']
         })
       end
 
