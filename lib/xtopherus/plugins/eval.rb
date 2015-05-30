@@ -16,8 +16,8 @@ class Xtopherus::Eval
     res = http.post '/', payload, HEADERS
     res = http.get URI.parse(res['Location']).path + '.json'
     m.reply "=> #{JSON.parse(res.body)['output']}"
-  rescue Exception
-    m.reply "I Dunno LOL ¯\(°_o)/¯"
+  rescue Exception => e
+    m.reply "I Dunno LOL ¯\(°_o)/¯ (psst, I do know: #{e})"
   end
 
   private
