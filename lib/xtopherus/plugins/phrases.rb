@@ -60,8 +60,9 @@ module Xtopherus
       end
 
       m.reply('Thank you, sir.', true)
-    rescue
+    rescue => e
       m.reply EXCEPTION_MSG
+      m.reply e
       raise
     end
 
@@ -81,8 +82,9 @@ module Xtopherus
       else
         m.reply "Did you mean: %s" % [ find_alike(key, m.channel.name, 5) ], true
       end
-    rescue
+    rescue => e
       m.reply EXCEPTION_MSG, true
+      m.reply e
       raise
     end
 
@@ -103,8 +105,9 @@ module Xtopherus
       else
         m.reply("Did you mean: %s" % [ find_alike(key, m.channel.name, 5) ], true)
       end
-    rescue
+    rescue => e
       m.reply EXCEPTION_MSG, true
+      m.reply e
       raise
     end
 
@@ -112,8 +115,9 @@ module Xtopherus
     def find_phrase(m, key)
       likes = find_alike(key, m.channel.name)
       m.reply("Matches for %s: %s" % [ key, likes ], true) unless likes.empty?
-    rescue
+    rescue => e
       m.reply EXCEPTION_MSG, true
+      m.reply e
       raise
     end
 
@@ -150,8 +154,9 @@ module Xtopherus
         likes = find_alike(key, m.channel.name, 5)
         m.reply("Did you mean: %s" % [ likes  ], true) unless likes.empty?
       end
-    rescue
+    rescue => e
       m.reply EXCEPTION_MSG, true
+      m.reply e
       raise
     end
 
@@ -190,8 +195,9 @@ module Xtopherus
         likes = find_alike(key, m.channel.name, 5)
         m.reply("Did you mean: %s" % [ likes ], true) unless likes.empty?
       end
-    rescue
+    rescue => e
       m.reply EXCEPTION_MSG, true
+      m.reply e
       raise
     end
 
