@@ -43,6 +43,7 @@ module Xtopherus
           Xtopherus::Possess,
           Xtopherus::Protolol,
           Xtopherus::Tweeter,
+          Xtopherus::Eval,
           Cinch::Plugins::Seen
         ]
       end
