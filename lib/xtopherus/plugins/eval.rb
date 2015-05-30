@@ -7,20 +7,28 @@ class Xtopherus::Eval
   HEADERS = {'Content-Type' => 'application/x-www-form-urlencoded'}
   FIELDS  = {'execute' => 'on', 'private' => 'on', 'lang' => 'ruby/mri-2.2'}
   WRAPPED = "p begin\n%s\nrescue Exception\n$!.class\nend"
+  NEWLINE = "\n"
   include Cinch::Plugin
   match /e (.+)\z/, method: :eval
 
   def eval(m, rubycode)
     http = new_http
     payload = URI.encode_www_form FIELDS.merge(code: WRAPPED % rubycode)
-    res = http.post '/', payload, HEADERS
-    res = http.get URI.parse(res['Location']).path + '.json'
-    m.reply "=> #{JSON.parse(res.body)['output']}"
+    uri = http.post('/', payload, HEADERS)['Location']
+    res = http.get uri + '.json'
+    m.reply "=> #{build_reply(res, uri)}"
   rescue Exception => e
     m.reply "I Dunno LOL ¯\(°_o)/¯ (psst, I do know: #{e})"
   end
 
   private
+  def build_reply(res, uri)
+    body = JSON.parse(res.body)['output']
+    reply = ''
+    body.each_char { |c| c == NEWLINE ? break : reply << c }
+    "#{reply[0..79]} ... #{uri}"
+  end
+
   def new_http
     Net::HTTP.new(HOST, PORT).tap do |http|
       http.use_ssl = true
