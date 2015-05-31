@@ -17,7 +17,7 @@ class Xtopherus::Eval
     payload = URI.encode_www_form FIELDS.merge(code: WRAPPED % rubycode)
     uri = http.post('/', payload, HEADERS)['Location']
     res = http.get uri + '.json'
-    m.reply "=> #{build_reply(res, uri)}"
+    m.reply build_reply(res, uri)
   rescue Exception => e
     m.reply "I Dunno LOL ¯\(°_o)/¯ (psst, I do know: #{e})"
   end
@@ -27,7 +27,7 @@ class Xtopherus::Eval
     body = JSON.parse(res.body)['output']
     reply = ''
     body.each_char { |c| c == NEWLINE ? break : reply << c }
-    "#{reply[0..79]} ... #{uri}"
+    "=> #{reply[0..79]} ... #{uri}"
   end
 
   def new_http
