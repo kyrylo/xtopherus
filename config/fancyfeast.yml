@@ -1,0 +1,17 @@
+nick: JosephStalin--
+realname: joey
+user: joey
+server: irc.freenode.net
+port: 6667
+channels:
+ - '#fancyfeast'
+plugins:
+ - Xtopherus::PeakInfo
+ - Xtopherus::Help
+ - Xtopherus::Classname
+ - Xtopherus::Phrases
+ - Xtopherus::Possess
+ - Xtopherus::Protolol
+ - Xtopherus::Tweeter
+ - Xtopherus::Eval
+ - Cinch::Plugins::Seen
