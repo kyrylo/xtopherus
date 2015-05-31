@@ -1,0 +1,19 @@
+nick: Xtopherus
+realname: Xtopherus
+user: Xtopherus
+server: irc.freenode.net
+port: 6667
+channels: #pry
+plugins:
+ - Xtopherus::PeakInfo
+ - Xtopherus::DownloadsInfo
+ - Xtopherus::PryPluginsInfo
+ - Xtopherus::IssuesNotifier
+ - Xtopherus::Help
+ - Xtopherus::Commits
+ - Xtopherus::Classname
+ - Xtopherus::Phrases
+ - Xtopherus::Possess
+ - Xtopherus::Protolol
+ - Xtopherus::Tweeter
+ - Cinch::Plugins::Seen
