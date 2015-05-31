@@ -8,15 +8,11 @@ class Xtopherus::Eval
   FIELDS  = {'execute' => 'on', 'private' => 'on', 'lang' => 'ruby/mri-2.2'}
   WRAPPED = "p begin\n%s\nrescue Exception\n$!.class\nend"
   NEWLINE = "\n"
-  IGNORES = ['#pry']
   include Cinch::Plugin
   set :prefix, /^>>/
   match /(.+)\z/, method: :eval
 
   def eval(m, rubycode)
-    if IGNORES.any? { |c| m.channel.name == c }
-      return
-    end
     http = new_http
     payload = URI.encode_www_form FIELDS.merge(code: WRAPPED % rubycode)
     uri = http.post('/', payload, HEADERS)['Location']
