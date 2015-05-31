@@ -3,7 +3,8 @@ realname: Xtopherus
 user: Xtopherus
 server: irc.freenode.net
 port: 6667
-channels: #pry
+channels:
+ - '#pry'
 plugins:
  - Xtopherus::PeakInfo
  - Xtopherus::DownloadsInfo

@@ -3,7 +3,8 @@ realname: joey
 user: joey
 server: irc.freenode.net
 port: 6667
-channels: #fancyfeast
+channels:
+ - '#fancyfeast'
 plugins:
  - Xtopherus::PeakInfo
  - Xtopherus::Help
