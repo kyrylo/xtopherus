@@ -11,9 +11,9 @@ module Xtopherus
       def get; @conf end
     end
 
-    def initialize
-      super
-      config = Bot::BotConfig.new
+    def initialize(options)
+      super()
+      config = Bot::BotConfig.new(options)
       configure do |c|
         c.nick     = config.get.nick
         c.realname = config.get.realname
