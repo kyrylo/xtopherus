@@ -183,7 +183,14 @@ module Xtopherus
         # Output based on op
         case op
         when "!"
-          m.reply(replace_args(v.value, args))
+          msg = replace_args(v.value, args)
+          if msg =~ /\A>>\s*/
+            Xtopherus::Eval.new(self.bot).tap do |plugin|
+              plugin.eval(m, msg.sub(/\A>>\s*/, ''))
+            end.unregister
+          else
+            m.reply(replace_args(v.value, args))
+          end
         when "?"
           m.reply("'%s' is '%s' (Stored by %s on %s, r%d)" % [
               key, v.value, v.nick,

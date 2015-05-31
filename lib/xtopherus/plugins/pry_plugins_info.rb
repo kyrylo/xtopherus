@@ -28,7 +28,7 @@ module Xtopherus
     def listen(m)
       if m.user.nick == bot.nick
         send_plugins_notification
-        send_plugin_of_the_week_notification(first_run: true)
+        # send_plugin_of_the_week_notification(first_run: true)
       end
     end
 
