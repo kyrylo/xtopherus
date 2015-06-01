@@ -30,6 +30,7 @@ require_relative 'xtopherus/plugins/possess'
 require_relative 'xtopherus/plugins/protolol'
 require_relative 'xtopherus/plugins/tweeter'
 require_relative 'xtopherus/plugins/eval'
+require_relative 'xtopherus/plugins/memo'
 
 module Xtopherus
 
