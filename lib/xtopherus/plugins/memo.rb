@@ -82,7 +82,7 @@ cinch memo for <nick>: <message>
     def on_connect(*)
       @public_memos  = Hash.new{|hsh, k| hsh[k] = []}
       @private_memos = Hash.new{|hsh, k| hsh[k] = []}
-      @max_lifetime  = config[:max_lifetime] || 7
+      @max_lifetime  = config[:max_lifetime] || 60
       @public_mutex  = Mutex.new
       @private_mutex = Mutex.new
 
