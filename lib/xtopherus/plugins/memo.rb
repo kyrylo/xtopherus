@@ -64,9 +64,9 @@ module Xtopherus
     listen_to :join,               :method => :on_join
     listen_to :online,             :method => :on_online
     timer LIFETIME_CHECK_INTERVAL, :method => :check_lifetimes
-    match /memo (.+) (.+)/i, :method => :memoize, :react_on => :channel
-    match /memo for (.*?): (.*)/i, :method => :memoize, :react_on => :channel
-    match /memo for (.*?): (.*)/i, :method => :private_memoize, :react_on => :private, :use_prefix => false
+    match /memo (\S+) (.+)/i, :method => :memoize, :react_on => :channel
+    match /memo for (\S+): (.*)/i, :method => :memoize, :react_on => :channel
+    match /memo for (\S+): (.*)/i, :method => :private_memoize, :react_on => :private, :use_prefix => false
 
     set :help, <<-HELP
 cinch memo for <nick>: <message>
